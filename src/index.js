@@ -21,10 +21,18 @@ io.on('connection', (socket) => {
     socket.emit('message', 'Welcome')
     socket.broadcast.emit('message', 'A new user has joined')
 
+    // listening from sendMessage
     socket.on('sendMessage', (message) => {
         io.emit('message', message)
     })
 
+    //  listening from sendlocation
+    socket.on('sendLocation', (coords) => {
+        // share data to all collective clients
+        io.emit('message', `https://google.com/maps?q=${coords.latitude},${coords.longitude}`)
+
+    })
+    // If user is disconnect sent the message 
     socket.on('disconnect', () => {
         io.emit('message', ' A user has left!')
     })
