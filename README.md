@@ -8,4 +8,4 @@ A simple chat application written in node.js with socket.io. A User's can chat i
 - HTML, CSS, JavaScript, Node.js
 
 # Libraries used 
- bad-words, moment.js, Mustache.js
+ bad-words, moment.js, Mustache.js, queryString
