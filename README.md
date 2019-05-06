@@ -1,6 +1,6 @@
 # chat-app
 
-A simple chat application written in node.js. A User's can chat in real time.
+A simple chat application written in node.js with socket.io. A User's can chat in real time.
 
 
 
@@ -8,4 +8,4 @@ A simple chat application written in node.js. A User's can chat in real time.
 - HTML, CSS, JavaScript, Node.js
 
 # Libraries used 
- bad-words
+ bad-words, moment.js, Mustache.js, queryString
