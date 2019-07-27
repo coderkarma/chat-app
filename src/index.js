@@ -46,8 +46,8 @@ io.on('connection', (socket) => {
 
         socket.join(user.room)
 
-        socket.emit('message', generateMessage('Admin','Welcome!'))
-        socket.broadcast.to(user.room).emit('message', generateMessage('Admin',`${user.username} has joined!`))
+        socket.emit('message', generateMessage('Admin', 'Welcome!'))
+        socket.broadcast.to(user.room).emit('message', generateMessage('Admin', `${user.username} has joined!`))
         io.to(user.room).emit('roomData', {
             room: user.room,
             users: getUserInRoom(user.room)
@@ -58,7 +58,7 @@ io.on('connection', (socket) => {
     })
 
     // listening from sendMessage
-    socket.on('sendMessage', ( message, callback) => {
+    socket.on('sendMessage', (message, callback) => {
         const user = getUser(socket.id)
         const filter = new Filter();
 
@@ -82,7 +82,7 @@ io.on('connection', (socket) => {
         const user = removeUser(socket.id)
 
         if (user) {
-            io.to(user.room).emit('message', generateMessage('Admin',`${user.username} has left!`))
+            io.to(user.room).emit('message', generateMessage('Admin', `${user.username} has left!`))
             io.to(user.room).emit('roomData', {
                 room: user.room,
                 users: getUserInRoom(user.room)
